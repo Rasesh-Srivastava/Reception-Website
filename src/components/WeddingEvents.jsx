@@ -27,8 +27,8 @@ function useRosePetalsCanvas(canvasRef) {
 
     window.addEventListener('resize', handleResize);
 
-    // Particle count optimized for 60 FPS performance on mobile and desktop
-    const particleCount = width < 768 ? 26 : 44;
+    // Particle count reduced to 0.75x for mobile and desktop (20 / 33)
+    const particleCount = width < 768 ? Math.round(26 * 0.75) : Math.round(44 * 0.75);
     const petals = Array.from({ length: particleCount }, () => ({
       x: Math.random() * width,
       y: Math.random() * height - height,
@@ -103,71 +103,6 @@ function useRosePetalsCanvas(canvasRef) {
 
 export const DEFAULT_EVENTS = [
   {
-    id: 'mehendi',
-    date: 'DEC 2, 2026',
-    fancyName: 'Henna Hues',
-    actualName: 'Mehendi Ceremony',
-    time: '10:00 AM Onwards',
-    venue: 'Amoha Hall',
-    dressCode: 'Green & Floral Festive',
-    description: 'A sacred morning of henna, music and auspicious blessings.',
-    icon: import.meta.env.BASE_URL + 'leaf.png',
-    caricature: import.meta.env.BASE_URL + 'CARICATURE 5.png',
-    fancyNamePaddingTop: '0px'
-  },
-  {
-    id: 'sangeet',
-    date: 'DEC 2, 2026',
-    fancyName: 'Glitter & Grooves',
-    actualName: 'Sangeet Night',
-    time: '6:30 PM Onwards',
-    venue: 'Sadhya Hall',
-    dressCode: 'Glamorous Evening Wear',
-    description: 'Dance, sing, and celebrate the union of two families under the stars.',
-    icon: import.meta.env.BASE_URL + 'music.png',
-    caricature: import.meta.env.BASE_URL + 'CARICATURE 2.png',
-    fancyNamePaddingTop: '0px'
-  },
-  {
-    id: 'haldi',
-    date: 'DEC 3, 2026',
-    fancyName: 'Turmeric Twist',
-    actualName: 'Haldi Carnival',
-    time: '11:00 AM Onwards',
-    venue: 'Mosaic Alfresco',
-    dressCode: 'Shades of Yellow',
-    description: 'A morning of auspicious turmeric, laughter, and joyful celebrations.',
-    icon: import.meta.env.BASE_URL + 'star.png',
-    caricature: import.meta.env.BASE_URL + 'CARICATURE 6.png',
-    fancyNamePaddingTop: '0px'
-  },
-  {
-    id: 'wedding',
-    date: 'DEC 3, 2026',
-    fancyName: 'Serenade of Souls',
-    actualName: 'Wedding Ceremony',
-    time: '7:30 PM Onwards',
-    venue: 'Kalpatru Lawn',
-    dressCode: 'Traditional Royal Attire',
-    description: 'Where two souls unite in sacred Pheras and eternal love.',
-    icon: import.meta.env.BASE_URL + 'garland.png',
-    caricature: import.meta.env.BASE_URL + 'CARICATURE 1.png',
-    fancyNamePaddingTop: '0px'
-  },
-  {
-    id: 'phere',
-    date: 'DEC 4, 2026',
-    fancyName: 'Petals & Promises',
-    actualName: 'Saptapadi',
-    time: '1:00 AM Onwards',
-    venue: 'Mosaic Alfresco',
-    dressCode: 'Traditional Royal Attire',
-    description: 'Where two souls unite in sacred Pheras and eternal love.',
-    icon: import.meta.env.BASE_URL + 'fire.png',
-    caricature: import.meta.env.BASE_URL + 'CARICATURE 3.png',
-    fancyNamePaddingTop: '0px'
-  },
-  {
     id: 'reception',
     date: 'DEC 7, 2026',
     fancyName: 'Twirl into Togetherness',
@@ -212,12 +147,12 @@ export default function WeddingEvents({ events = DEFAULT_EVENTS }) {
       >
         <h2 style={{
           fontFamily: "'Great Vibes', cursive",
-          fontSize: 'clamp(44px, 9vw, 72px)',
+          fontSize: 'clamp(48px, 10vw, 76px)',
           color: '#c9942a',
           margin: 0,
           fontWeight: 'normal'
         }}>
-          Wedding Events
+          Reception
         </h2>
       </motion.div>
 
