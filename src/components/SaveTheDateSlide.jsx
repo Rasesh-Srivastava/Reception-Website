@@ -19,8 +19,8 @@ export default function SaveTheDateSlide({
       style={{
         position: 'relative',
         width: '100%',
-        height: 'clamp(340px, 48vh, 440px)',
-        minHeight: '340px',
+        height: 'clamp(270px, 38vh, 350px)',
+        minHeight: '270px',
         overflow: 'hidden',
         background: '#152025',
         borderBottom: '1px solid #2C3730',
@@ -76,7 +76,7 @@ export default function SaveTheDateSlide({
             textShadow: '0 4px 16px rgba(0,0,0,0.4)'
           }}>
             <span style={{ fontFamily: "'Pinyon Script', cursive", fontSize: '1.15em', marginRight: '1px', display: 'inline-block' }}>A</span>
-            &nbsp;little reminder to keep these dates free for us.
+            &nbsp;little reminder to keep this date free for us.
           </h2>
 
           {/* Decorative Gold Line */}
@@ -87,32 +87,7 @@ export default function SaveTheDateSlide({
             margin: '0 auto 24px auto'
           }} />
 
-          {/* Line 2: Wednesday, December 2, 2026 */}
-          <p style={{
-            fontFamily: "'Cinzel', 'Cormorant Garamond', serif",
-            fontSize: 'clamp(18px, 3.2vw, 28px)',
-            color: '#fdf8f0',
-            letterSpacing: '2.5px',
-            margin: '0 0 12px 0',
-            fontWeight: '600',
-            lineHeight: 1.3,
-            textTransform: 'uppercase'
-          }}>
-            Wednesday, December 2
-          </p>
-
-          {/* Line 3: and */}
-          <p style={{
-            fontFamily: "'Great Vibes', cursive",
-            fontSize: 'clamp(24px, 4vw, 34px)',
-            color: '#c9942a',
-            margin: '4px 0 12px 0',
-            fontStyle: 'italic'
-          }}>
-            and
-          </p>
-
-          {/* Line 4: Thursday, December 3, 2026 */}
+          {/* Date: Monday, December 7, 2026 */}
           <p style={{
             fontFamily: "'Cinzel', 'Cormorant Garamond', serif",
             fontSize: 'clamp(18px, 3.2vw, 28px)',
@@ -123,7 +98,7 @@ export default function SaveTheDateSlide({
             lineHeight: 1.3,
             textTransform: 'uppercase'
           }}>
-            Thursday, December 3, 2026
+            Monday, December 7, 2026
           </p>
         </motion.div>
       </div>

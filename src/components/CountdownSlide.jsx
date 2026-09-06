@@ -4,7 +4,7 @@ import { useCountdown } from '../hooks/useCountdown';
 import confetti from 'canvas-confetti';
 
 export default function CountdownSlide() {
-  const time = useCountdown('2026-12-03T10:00:00');
+  const time = useCountdown('2026-12-07T10:00:00');
   const canvasRef = useRef(null);
   const isDrawingRef = useRef(false);
   const [isRevealed, setIsRevealed] = useState(false);
@@ -274,7 +274,7 @@ export default function CountdownSlide() {
               margin: '0 0 6px 0',
               fontWeight: 'bold'
             }}>
-              Thursday
+              Monday
             </p>
             <p style={{
               fontFamily: "'Great Vibes', cursive",
@@ -284,7 +284,7 @@ export default function CountdownSlide() {
               margin: 0,
               lineHeight: 1.1
             }}>
-              December 3, 2026
+              December 7, 2026
             </p>
           </div>
 
