@@ -505,7 +505,7 @@ function App() {
             <VenueSlide
               venueName="The Regal Grand Resort"
               venueAddress="Opposite Axis bank, Medical College Road, near Gulharia Thana, Gorakhpur, Uttar Pradesh, India, PIN: 273013"
-              mapsUrl="https://www.google.com/maps/place/The+Regal+Grand+Luxury+Resort/@26.8292622,83.4132809,17z/data=!3m1!4b1!4m6!3m5!1s0x3991455687887fc1:0x7f4b6065340985f5!8m2!3d26.8292622!4d83.4158558!16s%2Fg%2F11fz26wss2?entry=ttu&g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D"
+              mapsUrl="https://maps.app.goo.gl/DNwJb6Rnspkbpccx7"
               venueImgSrc={import.meta.env.BASE_URL + 'venue.jpeg'}
             />
           
