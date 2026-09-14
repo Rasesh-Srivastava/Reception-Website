@@ -491,7 +491,7 @@ function App() {
                   "Two souls, one journey; woven by destiny."
                 </p>
                 <p style={{ margin: 0, textAlign: 'center' }}>
-                  We warmly request the pleasure of your presence as they begin their forever.
+                  We warmly request your presence and blessings at thier Reception Ceremony as they begin their forever.
                 </p>
               </motion.div>
             </section>

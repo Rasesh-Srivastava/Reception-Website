@@ -107,7 +107,7 @@ export const DEFAULT_EVENTS = [
     date: 'DEC 7, 2026',
     fancyName: 'Twirl into Togetherness',
     actualName: 'Aashirwad',
-    time: '7:00 PM Onwards',
+    time: '7:30 PM Onwards',
     venue: 'Banquet Hall',
     dressCode: 'Traditional Royal Attire',
     description: 'Where two souls unite in sacred Pheras and eternal love.',
