@@ -4,7 +4,7 @@ import { useCountdown } from '../hooks/useCountdown';
 import confetti from 'canvas-confetti';
 
 export default function CountdownSlide() {
-  const time = useCountdown('2026-12-07T10:00:00');
+  const time = useCountdown('2026-12-07T19:00:00');
   const canvasRef = useRef(null);
   const isDrawingRef = useRef(false);
   const [isRevealed, setIsRevealed] = useState(false);
