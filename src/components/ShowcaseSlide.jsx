@@ -224,7 +224,7 @@ export default function ShowcaseSlide({
           <h3 className="showcase-name">Dr. Shivi</h3>
           <p className="showcase-title">The Bride</p>
           <p className="showcase-bio">
-            A vision of grace and beauty, ready to embark on a sweet adventure of love. Eager to write a story of tomorrow alongside her dream partner.
+            She who restores vision to the world has stolen a heart with hers. With grace in her moves and kindness in her soul, she is a perfect blend of elegance, intelligence and charm
           </p>
 
           {/* Bride's Blessed by Elders Block */}
