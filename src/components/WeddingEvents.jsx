@@ -109,7 +109,7 @@ export const DEFAULT_EVENTS = [
     actualName: 'Aashirwad',
     time: '7:30 PM Onwards',
     venue: 'Banquet Hall',
-    dressCode: 'Modern Indian couture',
+    dressCode: 'Modern Indian Couture',
     description: 'An elegant evening of fine dining, heartfelt toasts, and joyful celebrations with family and friends',
     icon: import.meta.env.BASE_URL + 'ring.png',
     caricature: import.meta.env.BASE_URL + 'CARICATURE 4.png',
