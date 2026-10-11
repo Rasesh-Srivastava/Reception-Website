@@ -109,8 +109,8 @@ export const DEFAULT_EVENTS = [
     actualName: 'Aashirwad',
     time: '7:30 PM Onwards',
     venue: 'Banquet Hall',
-    dressCode: 'Traditional Royal Attire',
-    description: 'Where two souls unite in sacred Pheras and eternal love.',
+    dressCode: 'Modern Indian couture',
+    description: 'An elegant evening of fine dining, heartfelt toasts, and joyful celebrations with family and friends',
     icon: import.meta.env.BASE_URL + 'ring.png',
     caricature: import.meta.env.BASE_URL + 'CARICATURE 4.png',
     fancyNamePaddingTop: '6px'
