@@ -53,14 +53,14 @@ function App() {
   useEffect(() => {
     window.addEventListener('resize', syncButtonPosition)
     window.addEventListener('scroll', syncButtonPosition, { passive: true })
-    
+
     // Continuous loop to prevent alignment drift during transitions, scrolls, or layout shifts
     let frameId;
     const loop = () => {
       syncButtonPosition()
       frameId = requestAnimationFrame(loop)
     }
-    
+
     if (stage >= 1) {
       frameId = requestAnimationFrame(loop)
     }
@@ -131,20 +131,20 @@ function App() {
             transition={{ duration: 0.8 }}
           >
             {/* ── Hero Section (Slide 1) ── */}
-             <section
-               style={{
-                 position: 'relative',
-                 minHeight: 'auto',
-                 background: '#1A292F',
-                 display: 'flex',
-                 flexDirection: 'column',
-                 justifyContent: 'flex-start',
-                 alignItems: 'center',
-                 boxSizing: 'border-box',
-                 borderBottom: '1px solid #2C3730',
-                 paddingBottom: '48px'
-               }}
-             >
+            <section
+              style={{
+                position: 'relative',
+                minHeight: 'auto',
+                background: '#1A292F',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'flex-start',
+                alignItems: 'center',
+                boxSizing: 'border-box',
+                borderBottom: '1px solid #2C3730',
+                paddingBottom: '48px'
+              }}
+            >
               {/* Top — Logo */}
               <motion.div
                 initial={{ opacity: 0, y: -20 }}
@@ -152,7 +152,7 @@ function App() {
                 transition={{ delay: 0.3, duration: 0.8 }}
                 style={{ padding: '20px 24px 0', textAlign: 'center' }}
               >
-              <img
+                <img
                   src={import.meta.env.BASE_URL + 'Logo_woBG.png'}
                   alt="S&I Logo"
                   style={{
@@ -185,9 +185,9 @@ function App() {
                       width: '100%'
                     }}
                   >
-                    Tap to set the mood
+                    Tap below to set the mood
                   </h2>
-                  
+
                   {/* Subtitle - Desktop only */}
                   <AnimatePresence>
                     {isPlaying && (
@@ -240,26 +240,50 @@ function App() {
                 <div className="music-right">
                   {/* Stereo image with positionTarget anchor */}
                   <div
+                    role="button"
+                    tabIndex={0}
+                    aria-label={isPlaying ? "Pause music" : "Play music"}
+                    aria-pressed={isPlaying}
+                    onClick={(e) => {
+                      if (playBtnRef.current && playBtnRef.current.contains(e.target)) {
+                        return
+                      }
+                      togglePlay()
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault()
+                        togglePlay()
+                      }
+                    }}
                     style={{
                       position: 'relative',
                       display: 'inline-block',
                       width: '100%',
                       maxWidth: '340px',
+                      cursor: 'pointer',
+                      userSelect: 'none',
+                      touchAction: 'manipulation',
+                      WebkitTapHighlightColor: 'transparent'
                     }}
                   >
                     <img
                       src={import.meta.env.BASE_URL + 'stereo.png'}
                       alt="Wedding Radio"
+                      draggable={false}
                       onLoad={syncButtonPosition}
                       style={{
                         width: '100%',
                         height: 'auto',
                         objectFit: 'contain',
                         display: 'block',
-                        filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.4))'
+                        filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.4))',
+                        userSelect: 'none',
+                        touchAction: 'manipulation',
+                        WebkitTapHighlightColor: 'transparent'
                       }}
                     />
-                    
+
                     {/* Position target anchor element */}
                     <div
                       id="positionTarget"
@@ -332,7 +356,11 @@ function App() {
               {/* Overlaid Play/Pause Button positioned dynamically */}
               <button
                 ref={playBtnRef}
-                onClick={togglePlay}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  togglePlay()
+                }}
+                aria-label={isPlaying ? "Pause music" : "Play music"}
                 className={isPlaying ? '' : 'pulsing-play-btn'}
                 style={{
                   position: 'fixed',
@@ -453,7 +481,7 @@ function App() {
                 >
                   are getting married!
                 </p>
-                
+
                 {/* Wedding Hashtag Image */}
                 <img
                   src={import.meta.env.BASE_URL + 'ShiviSeIshkHai.png'}
@@ -499,123 +527,123 @@ function App() {
             <CountdownSlide />
 
             <ShowcaseSlide />
-          
+
             <GallerySlide />
-          
+
             <VenueSlide
               venueName="The Regal Grand Resort"
               venueAddress="Opposite Axis bank, Medical College Road, near Gulharia Thana, Gorakhpur, Uttar Pradesh, India, PIN: 273013"
               mapsUrl="https://maps.app.goo.gl/DNwJb6Rnspkbpccx7"
               venueImgSrc={import.meta.env.BASE_URL + 'venue.jpeg'}
             />
-          
+
             <WeddingEvents />
 
             <SaveTheDateSlide />
 
-            <RSVPSlide scriptUrl='https://script.google.com/macros/s/AKfycbylZ_PeYHtbWSTwxPfnue5ltzqr5g9G5X8wvehJDdOQ85EbvgHF7ikHmT9VsASsh3GC/exec'/>
+            <RSVPSlide scriptUrl='https://script.google.com/macros/s/AKfycbylZ_PeYHtbWSTwxPfnue5ltzqr5g9G5X8wvehJDdOQ85EbvgHF7ikHmT9VsASsh3GC/exec' />
 
             <InvitedBySlide />
 
-          <FinalSlide />
+            <FinalSlide />
 
-          {/* ── Scroll progress indicator ── */}
-          <motion.div
-            style={{
-              position: 'fixed',
-              right: 0,
-              top: 0,
-              width: '3px',
-              height: '100vh',
-              background: 'linear-gradient(180deg, #c9942a, #f0d080)',
-              transformOrigin: 'top',
-              scaleY,
-              zIndex: 9999,
-            }}
-          />
-        </motion.div>
-
-        {/* Ganesh Screen Overlay */}
-        <AnimatePresence>
-          {stage === 1 && (
+            {/* ── Scroll progress indicator ── */}
             <motion.div
-              key="ganesh-overlay"
-              initial={{ y: 0 }}
-              exit={{ y: '-100vh', opacity: 0 }}
-              transition={{ duration: 1.0, ease: [0.76, 0, 0.24, 1] }}
               style={{
                 position: 'fixed',
-                inset: 0,
-                zIndex: 9998,
-                background: '#152025',
-                overflow: 'hidden'
-              }}
-            >
-              <GaneshSlide onComplete={() => setStage(2)} />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      {/* Fixed mute/unmute button — top right */}
-      {musicStarted && (
-        <button onClick={togglePlay} style={{
-          position: 'fixed', top: '16px', right: '16px', zIndex: 99999,
-          width: '40px', height: '40px', borderRadius: '50%',
-          background: 'rgba(0,0,0,0.35)',
-          backdropFilter: 'blur(10px)',
-          border: '1px solid rgba(201, 148, 42, 0.4)',
-          color: '#c9942a', fontSize: '18px', cursor: 'pointer',
-          display: 'flex',
-          alignItems: 'center', justifyContent: 'center'
-        }}>
-          {isPlaying ? '⏸' : '▶'}
-        </button>
-      )}
-      {/* Floating Scroll Indicator */}
-      <AnimatePresence>
-        {stage === 2 && showScrollIndicator && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.7 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-            style={{
-              position: 'fixed',
-              bottom: '32px',
-              right: '24px',
-              zIndex: 999,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '8px',
-              pointerEvents: 'none'
-            }}
-          >
-            <span style={{
-              fontFamily: "'EB Garamond', serif",
-              fontSize: '10px',
-              letterSpacing: '2px',
-              color: '#c9942a',
-              textTransform: 'uppercase',
-              textAlign: 'center',
-              display: 'block'
-            }}>
-              SCROLL
-            </span>
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
-              style={{
-                width: '1px',
-                height: '35px',
-                background: 'linear-gradient(to bottom, #c9942a, transparent)'
+                right: 0,
+                top: 0,
+                width: '3px',
+                height: '100vh',
+                background: 'linear-gradient(180deg, #c9942a, #f0d080)',
+                transformOrigin: 'top',
+                scaleY,
+                zIndex: 9999,
               }}
             />
           </motion.div>
-        )}
-      </AnimatePresence>
-      </div>
-    )}
-  </>
+
+          {/* Ganesh Screen Overlay */}
+          <AnimatePresence>
+            {stage === 1 && (
+              <motion.div
+                key="ganesh-overlay"
+                initial={{ y: 0 }}
+                exit={{ y: '-100vh', opacity: 0 }}
+                transition={{ duration: 1.0, ease: [0.76, 0, 0.24, 1] }}
+                style={{
+                  position: 'fixed',
+                  inset: 0,
+                  zIndex: 9998,
+                  background: '#152025',
+                  overflow: 'hidden'
+                }}
+              >
+                <GaneshSlide onComplete={() => setStage(2)} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+          {/* Fixed mute/unmute button — top right */}
+          {musicStarted && (
+            <button onClick={togglePlay} style={{
+              position: 'fixed', top: '16px', right: '16px', zIndex: 99999,
+              width: '40px', height: '40px', borderRadius: '50%',
+              background: 'rgba(0,0,0,0.35)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(201, 148, 42, 0.4)',
+              color: '#c9942a', fontSize: '18px', cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center', justifyContent: 'center'
+            }}>
+              {isPlaying ? '⏸' : '▶'}
+            </button>
+          )}
+          {/* Floating Scroll Indicator */}
+          <AnimatePresence>
+            {stage === 2 && showScrollIndicator && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.7 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4 }}
+                style={{
+                  position: 'fixed',
+                  bottom: '32px',
+                  right: '24px',
+                  zIndex: 999,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: '8px',
+                  pointerEvents: 'none'
+                }}
+              >
+                <span style={{
+                  fontFamily: "'EB Garamond', serif",
+                  fontSize: '10px',
+                  letterSpacing: '2px',
+                  color: '#c9942a',
+                  textTransform: 'uppercase',
+                  textAlign: 'center',
+                  display: 'block'
+                }}>
+                  SCROLL
+                </span>
+                <motion.div
+                  animate={{ y: [0, 8, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
+                  style={{
+                    width: '1px',
+                    height: '35px',
+                    background: 'linear-gradient(to bottom, #c9942a, transparent)'
+                  }}
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      )}
+    </>
   )
 }
 
